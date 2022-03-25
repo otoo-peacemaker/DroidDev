@@ -1,10 +1,13 @@
 package com.example.androidcleanarchitecture.util
 
-import android.accounts.NetworkErrorException
+import com.example.androidcleanarchitecture.webservices.AuthenticationException
+import com.example.androidcleanarchitecture.webservices.NetworkErrorException
+import com.example.androidcleanarchitecture.webservices.State
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+
 
 class Utils {
     companion object{
@@ -36,8 +39,6 @@ class Utils {
                     }
                 }
             }
-
-
             return State.ErrorState(error)
         }
     }
