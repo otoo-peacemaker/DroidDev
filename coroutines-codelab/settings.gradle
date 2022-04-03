@@ -15,3 +15,4 @@
  */
 
 include ':start', ':finished_code'
+include ':app'
