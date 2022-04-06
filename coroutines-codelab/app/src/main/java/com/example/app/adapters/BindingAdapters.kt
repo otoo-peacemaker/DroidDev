@@ -7,6 +7,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.app.network.NetworkStatus
+import com.example.app.util.Status
 import okhttp3.ResponseBody
 
 /**
@@ -16,17 +17,17 @@ import okhttp3.ResponseBody
  * hides the image view.
  */
 @BindingAdapter("ApiStatus")
-fun bindStatus(statusImageView: ImageView, status: NetworkStatus.Status) {
+fun bindStatus(statusImageView: ImageView, status: Status) {
     when (status) {
-       NetworkStatus.Status.LOADING  -> {
+       Status.LOADING  -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.loading_animation)
         }
-        NetworkStatus.Status.ERROR -> {
+        Status.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
         }
-        NetworkStatus.Status.SUCCESS -> {
+        Status.SUCCESS -> {
             statusImageView.visibility = View.GONE
         }
         else -> {

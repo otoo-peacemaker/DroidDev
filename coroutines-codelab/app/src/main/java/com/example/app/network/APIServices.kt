@@ -1,5 +1,6 @@
-package com.example.app
-import kotlinx.coroutines.Deferred
+package com.example.app.network
+import com.example.app.UserBody
+import com.example.app.UserResponse
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST

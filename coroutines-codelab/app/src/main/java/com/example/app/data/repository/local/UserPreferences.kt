@@ -1,4 +1,4 @@
-package com.example.app.repository.local
+package com.example.app.data.repository.local
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -10,11 +10,11 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import javax.inject.Singleton
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "my_data_store")
-
+@Singleton
 class UserPreferences @Inject constructor(@ApplicationContext context: Context) {
-
     private val appContext = context.applicationContext
 
     val accessToken: Flow<String?>

@@ -20,7 +20,6 @@ import com.example.android.kotlincoroutines.util.SkipNetworkInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 private val service: MainNetwork by lazy {
@@ -31,7 +30,7 @@ private val service: MainNetwork by lazy {
     val retrofit = Retrofit.Builder()
             .baseUrl("http://localhost/")
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+          //  .addConverterFactory(GsonConverterFactory.create())
             .build()
 
     retrofit.create(MainNetwork::class.java)

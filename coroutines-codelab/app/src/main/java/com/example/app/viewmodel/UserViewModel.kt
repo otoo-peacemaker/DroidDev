@@ -1,10 +1,15 @@
-package com.example.app
+package com.example.app.viewmodel
 
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.app.repository.RemoteDataSource.UserRepository
+import com.example.app.UserBody
+import com.example.app.UserResponse
+import com.example.app.network.NetworkStatus
+import com.example.app.data.repository.RemoteDataSource.UserRepository
+import com.example.app.util.Resource
+import com.example.app.util.Status
 import com.example.app.util.snackBar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -25,8 +30,8 @@ class UserViewModel(var userRepository: UserRepository) : ViewModel(
      * The external immutable LiveData for the request status
      * */
 
-    private val _status = MutableLiveData<NetworkStatus<UserResponse>>()
-    val status: LiveData<NetworkStatus<UserResponse>>
+    private val _status = MutableLiveData<Resource<UserResponse>>()
+    val status: LiveData<Resource<UserResponse>>
         get() = _status
 
     /**
@@ -35,8 +40,8 @@ class UserViewModel(var userRepository: UserRepository) : ViewModel(
      * The external LiveData interface to the property is immutable, so only this class can modify
      * */
 
-    private val _userResponse = MutableLiveData<NetworkStatus<UserResponse>>()
-    val userResponse: LiveData<NetworkStatus<UserResponse>>
+    private val _userResponse = MutableLiveData<Resource<UserResponse>>()
+    val userResponse: LiveData<Resource<UserResponse>>
         get() = _userResponse
 
     /**
@@ -47,18 +52,25 @@ class UserViewModel(var userRepository: UserRepository) : ViewModel(
 
     fun login(userBody: UserBody) {
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            _status.value = NetworkStatus.Loading
+            _status.postValue(Resource.loading(null))
             withContext(Dispatchers.Main) {
-                _userResponse.value = userRepository.login(userBody)
+                while (isActive){
+                    _userResponse.value = userRepository.login(userBody)
+                }
             }
         }
     }
 
     fun register(userBody: UserBody) = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-        _status.value = NetworkStatus.Loading
+        _status.value = Resource.loading(UserResponse())
         withContext(Dispatchers.Main) {
             _userResponse.value = userRepository.login(userBody)
         }
+    }
+
+
+    suspend fun saveAccessTokens(accessToken: String, refreshToken: String) {
+        userRepository.saveAccessTokens(accessToken, refreshToken)
     }
 
     private fun onError(message: String) {

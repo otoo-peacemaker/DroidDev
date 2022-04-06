@@ -1,10 +1,6 @@
-package com.example.app
+package com.example.app.network
 
 import okhttp3.ResponseBody
-
-/*enum class NetworkStatus {
-    LOADING, ERROR, SUCCESS
-}*/
 
 sealed class NetworkStatus<out T> {
     data class Success<out T>(val value: T) : NetworkStatus<T>()
@@ -14,4 +10,5 @@ sealed class NetworkStatus<out T> {
         val errorBody: ResponseBody?
     ) : NetworkStatus<Nothing>()
     object Loading : NetworkStatus<Nothing>()
+
 }

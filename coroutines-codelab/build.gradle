@@ -61,9 +61,8 @@ buildscript {
                 "androidx.room:room-ktx:$room_version",
 
                 // network & serialization
-                "com.google.code.gson:gson:$gson_version",
-                "com.squareup.retrofit2:converter-gson:$retrofit_gson_version",
-                "com.squareup.retrofit2:retrofit:$retrofit_version",
+                "com.squareup.retrofit2:retrofit:$retrofit_version"
+
         ]
 
         librariesKapt = [
@@ -111,7 +110,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.1'
+        classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
