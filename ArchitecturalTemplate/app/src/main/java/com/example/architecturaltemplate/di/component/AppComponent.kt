@@ -4,6 +4,7 @@ import com.example.architecturaltemplate.MainActivity
 import com.example.architecturaltemplate.di.module.ActivityModule
 import com.example.architecturaltemplate.di.module.AndroidModule
 import com.example.architecturaltemplate.di.module.ApplicationModule
+import com.triad.mvvmlearning.network.RemoteDataSource
 
 import dagger.Component
 import javax.inject.Singleton
@@ -17,6 +18,6 @@ interface AppComponent {
 
    // fun inject(activity: LoginFragment)
 
-  //  fun inject(fragment: RemoteDataSource)
+   fun inject(fragment: RemoteDataSource)
 
 }

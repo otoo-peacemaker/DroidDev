@@ -2,6 +2,7 @@ package com.example.architecturaltemplate.di.module
 
 
 import androidx.databinding.library.BuildConfig
+import com.triad.mvvmlearning.network.RemoteDataSource
 import javax.inject.Singleton
 
 import dagger.Module
