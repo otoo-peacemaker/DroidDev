@@ -1,4 +1,4 @@
-package com.triad.mvvmlearning.network
+package com.example.architecturaltemplate.network
 
 import com.triad.mvvmlearning.responses.loginresponse.LoginResponse
 import com.triad.mvvmlearning.utility.Constants
