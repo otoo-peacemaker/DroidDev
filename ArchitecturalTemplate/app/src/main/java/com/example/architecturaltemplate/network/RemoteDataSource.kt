@@ -1,7 +1,7 @@
-package com.triad.mvvmlearning.network
+package com.example.architecturaltemplate.network
 
 import com.example.architecturaltemplate.app.App
-import com.triad.mvvmlearning.utility.Constants
+import com.example.architecturaltemplate.util.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,5 +28,4 @@ class RemoteDataSource {
             .build()
             .create(api)
     }
-
 }

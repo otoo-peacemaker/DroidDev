@@ -4,7 +4,7 @@ import com.example.architecturaltemplate.MainActivity
 import com.example.architecturaltemplate.di.module.ActivityModule
 import com.example.architecturaltemplate.di.module.AndroidModule
 import com.example.architecturaltemplate.di.module.ApplicationModule
-import com.triad.mvvmlearning.network.RemoteDataSource
+import com.example.architecturaltemplate.network.RemoteDataSource
 
 import dagger.Component
 import javax.inject.Singleton

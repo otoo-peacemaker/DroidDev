@@ -1,7 +1,7 @@
 package com.example.architecturaltemplate.network
 
-import com.triad.mvvmlearning.responses.loginresponse.LoginResponse
-import com.triad.mvvmlearning.utility.Constants
+import com.example.architecturaltemplate.dao.LoginResponse
+import com.example.architecturaltemplate.util.Constants
 import retrofit2.http.Body
 import retrofit2.http.POST
 
