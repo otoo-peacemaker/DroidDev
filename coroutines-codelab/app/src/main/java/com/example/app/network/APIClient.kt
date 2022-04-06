@@ -1,5 +1,6 @@
 package com.example.app
 
+import com.example.app.util.Endpoints
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -18,7 +19,7 @@ private val moshi = Moshi.Builder()
  */
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .baseUrl(BASE_URL)
+        .baseUrl(Endpoints.BASE_URL)
         .build()
 
 /**

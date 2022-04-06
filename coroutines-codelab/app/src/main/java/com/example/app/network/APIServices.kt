@@ -9,4 +9,6 @@ interface APIServices {
     @POST("login")
     suspend fun login(@Body params: UserBody): UserResponse
 
+    suspend  fun logout() : UserBody
+
 }

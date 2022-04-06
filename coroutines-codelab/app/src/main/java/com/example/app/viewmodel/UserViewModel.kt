@@ -1,17 +1,22 @@
 package com.example.app
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.app.repository.RemoteDataSource.UserRepository
+import com.example.app.util.snackBar
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 
-class UserViewModel(val userRepository: UserRepository) : ViewModel(
+@HiltViewModel
+class UserViewModel(var userRepository: UserRepository) : ViewModel(
 ) {
 
     private var job: Job? = null
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        // onError("Exception handled: ${throwable.localizedMessage}")
-        _status.value = NetworkStatus.ERROR
+        onError("Exception handled: ${throwable.localizedMessage}")
+//        _status.value = throwable.localizedMessage
     }
 
     /**
@@ -20,8 +25,8 @@ class UserViewModel(val userRepository: UserRepository) : ViewModel(
      * The external immutable LiveData for the request status
      * */
 
-    private val _status = MutableLiveData<NetworkStatus>()
-    val status: LiveData<NetworkStatus>
+    private val _status = MutableLiveData<NetworkStatus<UserResponse>>()
+    val status: LiveData<NetworkStatus<UserResponse>>
         get() = _status
 
     /**
@@ -30,8 +35,8 @@ class UserViewModel(val userRepository: UserRepository) : ViewModel(
      * The external LiveData interface to the property is immutable, so only this class can modify
      * */
 
-    private val _userResponse = MutableLiveData<UserResponse>()
-    val userResponse: LiveData<UserResponse>
+    private val _userResponse = MutableLiveData<NetworkStatus<UserResponse>>()
+    val userResponse: LiveData<NetworkStatus<UserResponse>>
         get() = _userResponse
 
     /**
@@ -42,12 +47,23 @@ class UserViewModel(val userRepository: UserRepository) : ViewModel(
 
     fun login(userBody: UserBody) {
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            _status.value = NetworkStatus.LOADING
-            withContext(Dispatchers.Main){
-               _userResponse.value = userRepository.login(userBody)
-                _status.value = NetworkStatus.SUCCESS
+            _status.value = NetworkStatus.Loading
+            withContext(Dispatchers.Main) {
+                _userResponse.value = userRepository.login(userBody)
             }
         }
+    }
+
+    fun register(userBody: UserBody) = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+        _status.value = NetworkStatus.Loading
+        withContext(Dispatchers.Main) {
+            _userResponse.value = userRepository.login(userBody)
+        }
+    }
+
+    private fun onError(message: String) {
+        val view: View? = null
+        view?.snackBar(message)
     }
 
 }
