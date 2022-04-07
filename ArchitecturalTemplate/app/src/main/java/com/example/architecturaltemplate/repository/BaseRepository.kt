@@ -1,6 +1,6 @@
 package com.triad.mvvmlearning.repository
 
-import com.triad.mvvmlearning.network.Resource
+import com.example.architecturaltemplate.network.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

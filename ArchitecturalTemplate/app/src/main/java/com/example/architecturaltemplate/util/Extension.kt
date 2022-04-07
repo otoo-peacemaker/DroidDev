@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import com.triad.mvvmlearning.network.Resource
+import com.example.architecturaltemplate.network.Resource
 import com.example.architecturaltemplate.ui.LoginFragment
 
 

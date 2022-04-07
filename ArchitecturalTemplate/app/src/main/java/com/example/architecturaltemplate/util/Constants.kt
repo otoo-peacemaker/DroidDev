@@ -39,9 +39,9 @@ interface Constants {
 
             // Login related
             const val USER_NAME = "username"
-            const val USER_ID = "id"
             const val TOKEN = "token"
             const val USER_PASSWORD = "password"
+            const val USER_ID = "id"
             const val REG_ID = "Device_id"
             const val STATUS = "status"
             const val FIRST_NAME = "fname"

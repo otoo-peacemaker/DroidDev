@@ -1,13 +1,7 @@
 package com.example.architecturaltemplate.dao
 
 
-data class LoginResponse(
-    val data: Data,
-    val message: String,
-    val status: String
-){
-
-    data  class Data(
+    data  class AuthData(
         val address: String,
         val app_url: String,
         val app_url_ios: String,
@@ -21,15 +15,12 @@ data class LoginResponse(
         val image: String,
         val mobile: String,
         val name: String,
-        val uniquecode: String,
-        val noti_count: String,
         val notification_count: String,
         val registered_store: String,
         val role: String,
         val rso_code: String,
         val state: String,
         val status: String,
-        val target_achivement: String,
         val target_value: String,
         val today: String,
         val token: String,
@@ -41,4 +32,4 @@ data class LoginResponse(
         val username: String,
         val zone: String
     )
-}
+

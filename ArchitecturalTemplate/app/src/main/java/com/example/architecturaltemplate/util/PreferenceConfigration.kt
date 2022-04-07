@@ -1,7 +1,7 @@
 package com.example.architecturaltemplate.util
 
 import com.example.architecturaltemplate.R
-import com.example.architecturaltemplate.app.App
+import com.example.architecturaltemplate.di.app.App
 import com.triad.mvvmlearning.utility.UtilityMethods.decrypt
 import com.triad.mvvmlearning.utility.UtilityMethods.encrypt
 

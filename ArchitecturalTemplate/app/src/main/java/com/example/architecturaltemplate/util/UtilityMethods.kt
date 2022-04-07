@@ -353,9 +353,9 @@ object UtilityMethods {
 
 //    @Throws(GeneralSecurityException::class)
 //    fun loadPublicKey(stored: String?): PublicKey {
-//        val data = Base64.decode(stored, Base64.DEFAULT)
+//        val authData = Base64.decode(stored, Base64.DEFAULT)
 //        val spec =
-//            X509EncodedKeySpec(data)
+//            X509EncodedKeySpec(authData)
 //        val fact = KeyFactory.getInstance("RSA")
 //        return fact.generatePublic(spec)
 //    }
@@ -501,7 +501,7 @@ object UtilityMethods {
                 // connected to wifi
                 return true
             } else if (activeNetworkInfo.type == ConnectivityManager.TYPE_MOBILE) {
-                // connected to the mobile provider's data plan
+                // connected to the mobile provider's authData plan
                 return true
             }
         }

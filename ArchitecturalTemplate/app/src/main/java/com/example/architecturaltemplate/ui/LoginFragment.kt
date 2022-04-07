@@ -1,4 +1,4 @@
-package com.example.architecturaltemplate
+package com.example.architecturaltemplate.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
+import com.example.architecturaltemplate.R
 import com.example.architecturaltemplate.dao.LoginResponse
 import com.example.architecturaltemplate.databinding.FragmentLoginBinding
 import com.example.architecturaltemplate.network.AuthApi
 import com.example.architecturaltemplate.repository.LoginRepository
-import com.example.architecturaltemplate.ui.BaseFragment
 import com.example.architecturaltemplate.viewmodel.LoginViewModel
 import com.example.architecturaltemplate.network.Resource
 import com.example.architecturaltemplate.util.Constants
@@ -32,6 +32,16 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding, LoginRe
                     Toast.makeText(requireContext(),"Logged in",Toast.LENGTH_LONG).show()
                 }
                 is Resource.Failure ->{
+                    /**
+                     *   val loginIntent = Intent(
+                        activity,
+                        MainActivity::class.java
+                    )
+                    loginIntent.putExtra("from", "login")
+                    startActivity(loginIntent)
+                    val activity = activity as Activity
+                    activity.finish()
+                    * */
                     Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show()
                 }
                 else -> {}
@@ -50,9 +60,9 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding, LoginRe
 
 
     private fun savePreference(value: LoginResponse){
-        UtilityMethods.setTokenValue(value.data.token)
+        UtilityMethods.setTokenValue(value.authData.token)
         PreferenceConfiguration.setPreference(
-            Constants.PreferenceConstants.USER_ID, value.data.email
+            Constants.PreferenceConstants.USER_ID, value.authData.email
         )
 
         PreferenceConfiguration.setPreference(

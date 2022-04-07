@@ -1,6 +1,6 @@
 package com.example.architecturaltemplate.network
 
-import com.example.architecturaltemplate.app.App
+import com.example.architecturaltemplate.di.app.App
 import com.example.architecturaltemplate.util.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

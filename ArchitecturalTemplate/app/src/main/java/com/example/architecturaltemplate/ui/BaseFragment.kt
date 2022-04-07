@@ -1,4 +1,4 @@
-package com.triad.mvvmlearning.view
+package com.example.architecturaltemplate.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,17 +12,18 @@ import com.example.architecturaltemplate.network.RemoteDataSource
 import com.triad.mvvmlearning.repository.BaseRepository
 import com.triad.mvvmlearning.viewModel.ViewModelFactory
 
-abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding, R : BaseRepository> : Fragment() {
+@Suppress("UNCHECKED_CAST")
+abstract class BaseFragment<VM : ViewModel, viewBinding : ViewDataBinding, repository : BaseRepository> : Fragment() {
 
-    protected lateinit var binding: B
+    protected lateinit var binding: viewBinding
     protected lateinit var viewModel: VM
 
     var remoteDataSource = RemoteDataSource()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
-
-        binding = getFragmentBinding(inflater, container) as B
+        savedInstanceState: Bundle?):
+            View? {
+        binding = getFragmentBinding(inflater, container) as viewBinding
         val factory = ViewModelFactory(getFragmentRepository())
         viewModel = ViewModelProvider(this, factory).get(getViewModel())
 
@@ -31,7 +32,7 @@ abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding, R : BaseReposit
 
     abstract fun getFragmentBinding(inflater: LayoutInflater, container: ViewGroup?): ViewDataBinding
 
-    abstract fun getFragmentRepository(): R
+    abstract fun getFragmentRepository(): repository
 
     abstract fun getViewModel(): Class<VM>
 
