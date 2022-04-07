@@ -1,4 +1,4 @@
-package com.werockstar.dagger2demo.di.component
+package com.example.architecturaltemplate.di.component
 
 import com.example.architecturaltemplate.MainActivity
 import com.example.architecturaltemplate.di.module.ActivityModule
@@ -7,17 +7,23 @@ import com.example.architecturaltemplate.di.module.ApplicationModule
 import com.example.architecturaltemplate.network.RemoteDataSource
 
 import dagger.Component
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [ ApplicationModule::class,
-    AndroidModule::class, ActivityModule::class])
+@Component(
+    modules = [
+        AndroidSupportInjectionModule::class,
+        ApplicationModule::class,
+        AndroidModule::class,
+        ActivityModule::class]
+)
 
 interface AppComponent {
     fun inject(fragment: MainActivity)
 
-   // fun inject(activity: LoginFragment)
+    //fun inject(activity: LoginFragment)
 
-   fun inject(fragment: RemoteDataSource)
+    fun inject(fragment: RemoteDataSource)
 
 }

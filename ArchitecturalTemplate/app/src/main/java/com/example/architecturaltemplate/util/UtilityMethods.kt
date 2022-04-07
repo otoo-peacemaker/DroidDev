@@ -1,5 +1,6 @@
 package com.triad.mvvmlearning.utility
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Context
@@ -18,11 +19,14 @@ import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.example.architecturaltemplate.util.Constants
+import com.example.architecturaltemplate.util.PreferenceConfiguration
 import com.google.android.material.snackbar.Snackbar
+import org.json.JSONObject
 import java.io.File
 import java.net.URI
 import java.net.URISyntaxException
 import java.security.*
+import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
 import java.text.DateFormat
 import java.text.ParseException
@@ -69,7 +73,7 @@ object UtilityMethods {
         val year =
             Calendar.getInstance()[Calendar.YEAR].toString()
         tokenVal = year + Constants.KeyToken + token
-        PreferenceConfigration.setPreference(
+        PreferenceConfiguration.setPreference(
             Constants.PreferenceConstants.TOKEN,
             tokenVal
         )
@@ -107,6 +111,7 @@ object UtilityMethods {
         return str
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun parseDateTimeTodMMMyyyy2(time: String?): String? {
         val inputPattern = "yyyy-MM-dd"
         val outputPattern = "d MMM yy"
@@ -125,21 +130,19 @@ object UtilityMethods {
 
     fun emailValidator(email: String?): Boolean {
         val pattern: Pattern
-        val matcher: Matcher
         val EMAIL_PATTERN =
             "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
         pattern = Pattern.compile(EMAIL_PATTERN)
-        matcher = pattern.matcher(email)
+        val matcher: Matcher = pattern.matcher(email)
         return matcher.matches()
     }
 
     fun isMockSettingsON(context: Context): Boolean {
         // returns true if mock location enabled, false if not enabled.
-        return if (Settings.Secure.getString(
-                context.contentResolver,
-                Settings.Secure.ALLOW_MOCK_LOCATION
-            ) == "0"
-        ) false else true
+        return Settings.Secure.getString(
+            context.contentResolver,
+            Settings.Secure.ALLOW_MOCK_LOCATION
+        ) != "0"
     }
 
     fun getFileNameByUri(context: Context, uri: Uri): String? {
@@ -191,16 +194,22 @@ object UtilityMethods {
     fun sendSMS(message: String, context: Context) {
 
 
-//        JSONObject jsonbody = null;
-//        try {
-//            jsonbody = new JSONObject();
-//            jsonbody.put("fsn", message);
-////            jsonbody.put("device", PreferenceConfigration.getPreference(Constants.PreferenceConstants.DEVICE));
-////            jsonbody.put("token", PreferenceConfigration.getPreference(Constants.PreferenceConstants.TOKEN));
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        var jsonbody: JSONObject? = null
+        try {
+            jsonbody = JSONObject()
+            jsonbody.put("fsn", message)
+            jsonbody.put(
+                "device",
+                PreferenceConfiguration.getPreference(Constants.PreferenceConstants.DEVICE)
+            )
+            jsonbody.put(
+                "token",
+                PreferenceConfiguration.getPreference(Constants.PreferenceConstants.TOKEN)
+            )
+
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
         val intent =
             Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "9200003232"))
         intent.putExtra("sms_body", "AMZKDL $message")
@@ -309,12 +318,8 @@ object UtilityMethods {
         var kf: KeyFactory? = null
         try {
             kf = KeyFactory.getInstance("RSA")
-            val encodedPb = Base64.decode(
-                publicKeyString,
-                Base64.DEFAULT
-            ) //Base64.decodeBase64(publicKeyString);
-            val keySpecPb =
-                X509EncodedKeySpec(encodedPb)
+            val encodedPb = Base64.decode(publicKeyString, Base64.DEFAULT)
+            val keySpecPb = X509EncodedKeySpec(encodedPb)
             publicKey = kf.generatePublic(keySpecPb)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -340,57 +345,55 @@ object UtilityMethods {
         return privateKey
     }
 
-//    @Throws(GeneralSecurityException::class)
-//    fun loadPrivateKey(key64: String?): PrivateKey {
-//        val clear = Base64.decode(key64, Base64.DEFAULT)
-//        val keySpec =
-//            PKCS8EncodedKeySpec(clear)
-//        val fact = KeyFactory.getInstance("RSA")
-//        val priv = fact.generatePrivate(keySpec)
-//        Arrays.fill(clear, 0.toByte())
-//        return priv
-//    }
+    @Throws(GeneralSecurityException::class)
+    fun loadPrivateKey(key64: String?): PrivateKey {
+        val clear = Base64.decode(key64, Base64.DEFAULT)
+        val keySpec =
+            PKCS8EncodedKeySpec(clear)
+        val fact = KeyFactory.getInstance("RSA")
+        val priv = fact.generatePrivate(keySpec)
+        Arrays.fill(clear, 0.toByte())
+        return priv
+    }
 
-//    @Throws(GeneralSecurityException::class)
-//    fun loadPublicKey(stored: String?): PublicKey {
-//        val authData = Base64.decode(stored, Base64.DEFAULT)
-//        val spec =
-//            X509EncodedKeySpec(authData)
-//        val fact = KeyFactory.getInstance("RSA")
-//        return fact.generatePublic(spec)
-//    }
-//
-//    @Throws(GeneralSecurityException::class)
-//    fun savePrivateKey(priv: PrivateKey?): String {
-//        val fact = KeyFactory.getInstance("RSA")
-//        val spec =
-//            fact.getKeySpec(
-//                priv,
-//                PKCS8EncodedKeySpec::class.java
-//            )
-//        val packed = spec.encoded
-//        val key64 =
-//            String(Base64.encode(packed, Base64.DEFAULT))
-//        Arrays.fill(packed, 0.toByte())
-//        return key64
-//    }
-//
-//    @Throws(GeneralSecurityException::class)
-//    fun savePublicKey(publ: PublicKey?): String {
-//        val fact = KeyFactory.getInstance("RSA")
-//        val spec =
-//            fact.getKeySpec(
-//                publ,
-//                X509EncodedKeySpec::class.java
-//            )
-//        return String(Base64.encode(spec.encoded, Base64.DEFAULT))
-//    }
+    @Throws(GeneralSecurityException::class)
+    fun loadPublicKey(stored: String?): PublicKey {
+        val authData = Base64.decode(stored, Base64.DEFAULT)
+        val spec =
+            X509EncodedKeySpec(authData)
+        val fact = KeyFactory.getInstance("RSA")
+        return fact.generatePublic(spec)
+    }
+
+    @Throws(GeneralSecurityException::class)
+    fun savePrivateKey(priv: PrivateKey?): String {
+        val fact = KeyFactory.getInstance("RSA")
+        val spec =
+            fact.getKeySpec(
+                priv,
+                PKCS8EncodedKeySpec::class.java
+            )
+        val packed = spec.encoded
+        val key64 =
+            String(Base64.encode(packed, Base64.DEFAULT))
+        Arrays.fill(packed, 0.toByte())
+        return key64
+    }
+
+    @Throws(GeneralSecurityException::class)
+    fun savePublicKey(publ: PublicKey?): String {
+        val fact = KeyFactory.getInstance("RSA")
+        val spec =
+            fact.getKeySpec(
+                publ,
+                X509EncodedKeySpec::class.java
+            )
+        return String(Base64.encode(spec.encoded, Base64.DEFAULT))
+    }
 
 
-    var pri =
-        "OpenSSLDSAPrivateKey{X=1f35a7314321be52452328ea6e89da34008fe9e7,params=OpenSSLDSAParams{G=8cc95f65aa33e775951cb70fd635b5388ebd3e96580cfbab7e0a8acd205f3637df36d8910875def5d0f7d17ed487993dd126488b6737f5a4c0ab12a18ae7b97a1929e1773cc629c5917167e79b15ec163d7ce62b569e5297db87f0f964dd2cd57cabec5d2528f6425435ebf59b802494fdf91aeb54b96e37f99e23020ba37548,P=c72c1f7dd70e97ad51eb0d1612b4249d160dc4e8f880b5b4abbaec237a50035402fb9f6fdddff8cd94b4eb186cef9c6963dce6874052ea48966aad2f89b562876488b1cab9c82eae8f0105dcdaf7ecdffee4cb79e07c6ed896a116d1c8ff0d41b143c7d42d0f9fa9084d6ca5b2f28540d9cb8421649d5f38acf0f5fdafcabbff,Q=80fb93c11b844b18ab9cc1ed55ff4ec750c2db55"
-    var pub =
-        "OpenSSLDSAPublicKey{Y=67f9f76dff7fd8d84ab8d8fa5b38c060722ed12e3eb940286bda0aaad25ca310d77c7ac4861bdd531b399f8827921131745902ebc9e4d2c6ca110d71f97d3bcb5cb4a8a28af3cc049efd0b1517867bf1301bbbb2b300588182f22d4b0e40211d4f46082adccc9415c9b11839c2615d81b770ba80012fcbee8c8c939de05610fd,params=OpenSSLDSAParams{G=8cc95f65aa33e775951cb70fd635b5388ebd3e96580cfbab7e0a8acd205f3637df36d8910875def5d0f7d17ed487993dd126488b6737f5a4c0ab12a18ae7b97a1929e1773cc629c5917167e79b15ec163d7ce62b569e5297db87f0f964dd2cd57cabec5d2528f6425435ebf59b802494fdf91aeb54b96e37f99e23020ba37548,P=c72c1f7dd70e97ad51eb0d1612b4249d160dc4e8f880b5b4abbaec237a50035402fb9f6fdddff8cd94b4eb186cef9c6963dce6874052ea48966aad2f89b562876488b1cab9c82eae8f0105dcdaf7ecdffee4cb79e07c6ed896a116d1c8ff0d41b143c7d42d0f9fa9084d6ca5b2f28540d9cb8421649d5f38acf0f5fdafcabbff,Q=80fb93c11b844b18ab9cc1ed55ff4ec750c2db55"
+    var pri = "OpenSSLDSAPrivateKey{X=1f35a7314321be52452328ea6e89da34008fe9e7,params=OpenSSLDSAParams{G=8cc95f65aa33e775951cb70fd635b5388ebd3e96580cfbab7e0a8acd205f3637df36d8910875def5d0f7d17ed487993dd126488b6737f5a4c0ab12a18ae7b97a1929e1773cc629c5917167e79b15ec163d7ce62b569e5297db87f0f964dd2cd57cabec5d2528f6425435ebf59b802494fdf91aeb54b96e37f99e23020ba37548,P=c72c1f7dd70e97ad51eb0d1612b4249d160dc4e8f880b5b4abbaec237a50035402fb9f6fdddff8cd94b4eb186cef9c6963dce6874052ea48966aad2f89b562876488b1cab9c82eae8f0105dcdaf7ecdffee4cb79e07c6ed896a116d1c8ff0d41b143c7d42d0f9fa9084d6ca5b2f28540d9cb8421649d5f38acf0f5fdafcabbff,Q=80fb93c11b844b18ab9cc1ed55ff4ec750c2db55"
+    var pub = "OpenSSLDSAPublicKey{Y=67f9f76dff7fd8d84ab8d8fa5b38c060722ed12e3eb940286bda0aaad25ca310d77c7ac4861bdd531b399f8827921131745902ebc9e4d2c6ca110d71f97d3bcb5cb4a8a28af3cc049efd0b1517867bf1301bbbb2b300588182f22d4b0e40211d4f46082adccc9415c9b11839c2615d81b770ba80012fcbee8c8c939de05610fd,params=OpenSSLDSAParams{G=8cc95f65aa33e775951cb70fd635b5388ebd3e96580cfbab7e0a8acd205f3637df36d8910875def5d0f7d17ed487993dd126488b6737f5a4c0ab12a18ae7b97a1929e1773cc629c5917167e79b15ec163d7ce62b569e5297db87f0f964dd2cd57cabec5d2528f6425435ebf59b802494fdf91aeb54b96e37f99e23020ba37548,P=c72c1f7dd70e97ad51eb0d1612b4249d160dc4e8f880b5b4abbaec237a50035402fb9f6fdddff8cd94b4eb186cef9c6963dce6874052ea48966aad2f89b562876488b1cab9c82eae8f0105dcdaf7ecdffee4cb79e07c6ed896a116d1c8ff0d41b143c7d42d0f9fa9084d6ca5b2f28540d9cb8421649d5f38acf0f5fdafcabbff,Q=80fb93c11b844b18ab9cc1ed55ff4ec750c2db55"
 
     fun rsaencrypt(input: String): String {
         val crypted: ByteArray? = null
@@ -405,11 +408,9 @@ object UtilityMethods {
 
 
             // new String(Base64.encodeToString(crypted, Base64.DEFAULT).replace("\n", ""));
-            val skey2 =
-                SecretKeySpec(pub.toByteArray(), "DSA")
+            val skey2 = SecretKeySpec(pub.toByteArray(), "DSA")
             cipher.init(Cipher.DECRYPT_MODE, skey2)
-            val output =
-                cipher.doFinal(Base64.decode(d, Base64.DEFAULT))
+            val output = cipher.doFinal(Base64.decode(d, Base64.DEFAULT))
             val dd = String(output)
         } catch (e: Exception) {
             println(e.toString())
@@ -422,7 +423,7 @@ object UtilityMethods {
         var crypted: ByteArray? = null
         try {
             val skey = SecretKeySpec(
-                Constants.EncryKey.toByteArray(),
+                Constants.EncryptKey.toByteArray(),
                 "AES"
             )
             val cipher =
@@ -430,19 +431,16 @@ object UtilityMethods {
             cipher.init(Cipher.ENCRYPT_MODE, skey)
             if (input != null) {
                 crypted = cipher.doFinal(input.toByteArray())
-            }else{
-                return  "";
+            } else {
+                return ""
             }
         } catch (e: Exception) {
             println(e.toString())
         }
 
-        var code : String
-        code = Base64.encodeToString(crypted, Base64.DEFAULT)
+
+        return Base64.encodeToString(crypted, Base64.DEFAULT)
             .replace("\n", "")
-
-
-        return code
     }
 
     @JvmStatic
@@ -450,11 +448,10 @@ object UtilityMethods {
         var output: ByteArray? = null
         try {
             val skey = SecretKeySpec(
-                Constants.EncryKey.toByteArray(),
+                Constants.EncryptKey.toByteArray(),
                 "AES"
             )
-            val cipher =
-                Cipher.getInstance("AES/ECB/PKCS5Padding")
+            val cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
             cipher.init(Cipher.DECRYPT_MODE, skey)
             output = cipher.doFinal(Base64.decode(input, Base64.DEFAULT))
         } catch (e: Exception) {
@@ -463,25 +460,23 @@ object UtilityMethods {
         return output?.let { String(it) } ?: ""
     }
 
-    //    public static String getCurrentDate() {
-    //        Calendar c = Calendar.getInstance();
-    //        int day = c.get(Calendar.DAY_OF_MONTH);
-    //        int month = c.get(Calendar.MONTH) + 1;
-    //        int year = c.get(Calendar.YEAR);
-    //        String currentDate = Integer.toString(day) + "-" + Integer.toString(month) + "-" + Integer.toString(year);
-    //        return currentDate;
-    //    }
-    fun formateDateFromstring(
+    fun getCurrentDate(): String {
+        val c = Calendar.getInstance()
+        val day: Int = c.get(Calendar.DAY_OF_MONTH)
+        val month: Int = c.get(Calendar.MONTH) + 1
+        val year: Int = c.get(Calendar.YEAR)
+        return "$day-$month-$year"
+    }
+
+    fun formatDateFromstring(
         inputFormat: String?,
         outputFormat: String?,
         inputDate: String?
     ): String {
         var parsed: Date? = null
         var outputDate = ""
-        val df_input =
-            SimpleDateFormat(inputFormat, Locale.getDefault())
-        val df_output =
-            SimpleDateFormat(outputFormat, Locale.getDefault())
+        val df_input = SimpleDateFormat(inputFormat, Locale.getDefault())
+        val df_output = SimpleDateFormat(outputFormat, Locale.getDefault())
         try {
             parsed = df_input.parse(inputDate)
             outputDate = df_output.format(parsed)
@@ -506,7 +501,7 @@ object UtilityMethods {
             }
         }
         return false
-        /* if (conMan.getActiveNetworkInfo() != null
+      /*   if (conMan.getActiveNetworkInfo() != null
                 && conMan.getActiveNetworkInfo().isConnected())
             return true;
         else
@@ -515,13 +510,9 @@ object UtilityMethods {
 
     fun tokenValue(): String {
         var tokenVal = ""
-        val year =
-            Calendar.getInstance()[Calendar.YEAR].toString()
-        // tokenVal = year+"t3Qo7xfdH1"+PreferenceConfigration.getPreference(Constants.PreferenceConstants.TOKEN);
-        tokenVal =
-            year + Constants.KeyToken + PreferenceConfigration.getPreference(
-                Constants.PreferenceConstants.TOKEN
-            )
+        val year = Calendar.getInstance()[Calendar.YEAR].toString()
+        tokenVal = year+"t3Qo7xfdH1"+PreferenceConfiguration.getPreference(Constants.PreferenceConstants.TOKEN);
+        tokenVal = year + Constants.KeyToken + PreferenceConfiguration.getPreference(Constants.PreferenceConstants.TOKEN)
         return tokenVal
     }
 
@@ -562,7 +553,7 @@ object UtilityMethods {
         }
     }
 
-    fun MyTimeConverter(unix: String): String {
+    fun myTimeConverter(unix: String): String {
         val sdf: DateFormat =
             SimpleDateFormat("dd MMM, yyyy' 'HH:mm:ss", Locale.getDefault())
         sdf.timeZone = TimeZone.getTimeZone("Asia/Calcutta")

@@ -17,13 +17,10 @@ class RemoteDataSource {
         (App.instance as App).component
             .inject(this)
 
-
         // return this.remoteDataSource2
         return Retrofit.Builder()
             .baseUrl(Constants.baseUrl)
-            .client(
-                ok
-            )
+            .client(ok)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(api)

@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id "androidx.navigation.safeargs"
 }
@@ -35,7 +34,7 @@ android {
 
 
     dataBinding {
-       enabled true
+        enabled true
     }
 }
 
@@ -77,10 +76,12 @@ dependencies {
 //    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha07"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 
+    //Dagger and Hilt
     implementation "com.google.dagger:dagger:2.41"
     implementation "com.google.dagger:dagger-android:2.35.1"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation("javax.annotation:jsr250-api:1.0")
 
 }

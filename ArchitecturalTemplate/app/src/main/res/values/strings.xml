@@ -2,4 +2,8 @@
     <string name="app_name">ArchitecturalTemplate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="prompt_password">password</string>
+    <string name="action_sign_in">sign in</string>
+    <string name="prompt_email">email</string>
 </resources>
