@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.example.architecturaltemplate.network.Resource
-import com.example.architecturaltemplate.ui.LoginFragment
+import com.example.architecturaltemplate.ui.fragment.LoginFragment
 
 
 fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {

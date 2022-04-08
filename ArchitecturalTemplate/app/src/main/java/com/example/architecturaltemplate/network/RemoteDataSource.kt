@@ -8,8 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class RemoteDataSource {
-
-
     @Inject
     lateinit var ok: OkHttpClient
 

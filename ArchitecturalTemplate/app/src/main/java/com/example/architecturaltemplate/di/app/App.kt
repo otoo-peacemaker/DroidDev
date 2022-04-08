@@ -15,7 +15,6 @@ class App : Application() {
 
     companion object {
         var instance: App? = null
-
         fun applicationContext(): Context {
             return instance!!.applicationContext
         }
@@ -29,7 +28,6 @@ class App : Application() {
     }
 
     private fun createComponent() {
-
         component = DaggerAppComponent.builder()
             .applicationModule(ApplicationModule(this))
             .androidModule(AndroidModule()).build()

@@ -1,4 +1,4 @@
-package com.example.architecturaltemplate.ui
+package com.example.architecturaltemplate.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,8 +21,8 @@ abstract class BaseFragment<VM : ViewModel, viewBinding : ViewDataBinding, repos
     var remoteDataSource = RemoteDataSource()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?):
-            View? {
+        savedInstanceState: Bundle?): View? {
+
         binding = getFragmentBinding(inflater, container) as viewBinding
         val factory = ViewModelFactory(getFragmentRepository())
         viewModel = ViewModelProvider(this, factory).get(getViewModel())
