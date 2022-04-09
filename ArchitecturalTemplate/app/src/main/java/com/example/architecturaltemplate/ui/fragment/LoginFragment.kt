@@ -1,6 +1,7 @@
 package com.example.architecturaltemplate.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,20 +28,20 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding, LoginRe
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
+            Log.i(TAG,"...........................::::::::::::inside view model")
             binding.loading.visible(it is Resource.Loading)
             when (it) {
                 is Resource.Success -> {
                     lifecycleScope.launch {
-                        binding.xmlViewModel = it.value// save responses to [LoginResponse]
-                        savePreference(it.value)// save responses to preference
+                        binding.xmlLoginResponse = it.value// save responses to [LoginResponse]
+                        viewModel.savePreference(it.value)// save responses to preference
                         view.snackbar("Login successfully")
 
                         TODO("Start new fragment")
                     }
                 }
 
-                is Resource.Failure -> handleApiError(it){
-                }
+                is Resource.Failure -> handleApiError(it){viewModel.loginOnClickListener()}
                 else -> {
                     view.snackbar("something went wrong, please try again")
                 }
@@ -48,29 +49,10 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding, LoginRe
         })
 
         binding.login.setOnClickListener {
-            login()
+            viewModel.loginOnClickListener()
         }
     }
 
-  private  fun login(){
-        val paramObject = HashMap<String, String>()
-            paramObject["username"] = binding.username.text.toString()
-            paramObject["password"] = binding.password.text.toString()
-            viewModel.login(paramObject)
-    }
-
-
-    private fun savePreference(value: LoginResponse) {
-        UtilityMethods.setTokenValue(value.authData.token)
-        PreferenceConfiguration.setPreference(
-            Constants.PreferenceConstants.USER_ID, value.authData.email
-        )
-
-        PreferenceConfiguration.setPreference(
-            Constants.PreferenceConstants.USER_PASSWORD,
-            binding.password.text.toString()
-        )
-    }
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -86,6 +68,6 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding, LoginRe
     override fun getViewModel() = LoginViewModel::class.java
 
     companion object {
-        val TAG = LoginFragment
+       const val TAG = "LoginFragment"
     }
 }
