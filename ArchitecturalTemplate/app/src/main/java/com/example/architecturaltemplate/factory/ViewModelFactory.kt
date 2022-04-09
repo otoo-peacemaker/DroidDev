@@ -1,4 +1,4 @@
-package com.triad.mvvmlearning.viewModel
+package com.example.architecturaltemplate.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

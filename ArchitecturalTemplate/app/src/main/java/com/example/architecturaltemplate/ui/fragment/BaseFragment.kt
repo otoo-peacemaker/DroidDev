@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.architecturaltemplate.network.RemoteDataSource
 import com.triad.mvvmlearning.repository.BaseRepository
-import com.triad.mvvmlearning.viewModel.ViewModelFactory
+import com.example.architecturaltemplate.factory.ViewModelFactory
 
 @Suppress("UNCHECKED_CAST")
 abstract class BaseFragment<VM : ViewModel, viewBinding : ViewDataBinding, repository : BaseRepository> : Fragment() {
