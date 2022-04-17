@@ -4,9 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
+import com.example.architecturaltemplate.RegisterFragment
 import com.example.architecturaltemplate.network.Resource
 import com.example.architecturaltemplate.ui.fragment.LoginFragment
+import com.google.android.material.snackbar.Snackbar
 
 
 fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
@@ -40,18 +41,39 @@ fun Fragment.handleApiError(
     retry: (() -> Unit)? = null
 ) {
     when {
+
         failure.isNetworkError -> requireView().snackbar(
-            "Please check your internet connection",
+            "Connection problem",
             retry
         )
-        failure.errorCode == 401 -> {
-            if (this is LoginFragment) {
-                requireView().snackbar("You've entered incorrect email or password")
-            } else {
+
+        failure.errorCode == 400 -> {
+            when (this) {
+                is LoginFragment -> requireView().snackbar("success")
+                is RegisterFragment -> requireView().snackbar("success")
+            }
+        }
+        failure.errorCode == 502 -> {
+            when (this) {
+                is LoginFragment -> requireView().snackbar("Internal server err")
+                is RegisterFragment -> requireView().snackbar("Internal server err")
+            }
+        }
+        failure.errorCode == 302 -> {
+            when (this) {
+                is LoginFragment -> requireView().snackbar("Unauthorized access")
+                is RegisterFragment -> requireView().snackbar("Unauthorized access")
                 // (this as BaseFragment<*, *, *>).logout()
             }
         }
-        else -> {
+
+        failure.errorCode == 401 -> {
+            when (this) {
+                is LoginFragment -> requireView().snackbar("authentication error")
+                is RegisterFragment -> requireView().snackbar("authentication error")
+                // (this as BaseFragment<*, *, *>).logout()
+            }
+        }else -> {
             val error = failure.errorBody?.string().toString()
             requireView().snackbar(error)
         }

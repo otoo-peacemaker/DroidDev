@@ -9,6 +9,8 @@ import java.net.UnknownHostException
 
 
 object NetworkCallExceptions {
+
+
     fun Fragment.resolveError(e: Exception): State.ErrorState {
             var error = e
 

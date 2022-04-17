@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.architecturaltemplate.repository.LoginRepository
 import com.example.architecturaltemplate.viewmodel.LoginViewModel
-import com.triad.mvvmlearning.repository.BaseRepository
+import com.example.architecturaltemplate.repository.BaseRepository
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory(private val repository: BaseRepository) :

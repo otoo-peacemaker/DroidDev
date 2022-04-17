@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.architecturaltemplate.network.RemoteDataSource
-import com.triad.mvvmlearning.repository.BaseRepository
+import com.example.architecturaltemplate.repository.BaseRepository
 import com.example.architecturaltemplate.factory.ViewModelFactory
 
 @Suppress("UNCHECKED_CAST")

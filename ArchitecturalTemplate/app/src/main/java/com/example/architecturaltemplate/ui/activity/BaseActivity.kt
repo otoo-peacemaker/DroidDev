@@ -6,10 +6,10 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.architecturaltemplate.network.RemoteDataSource
-import com.triad.mvvmlearning.repository.BaseRepository
+import com.example.architecturaltemplate.repository.BaseRepository
 import com.example.architecturaltemplate.factory.ViewModelFactory
 
-abstract class BaseActivity < VM :ViewModel, B : ViewDataBinding, R : BaseRepository > : AppCompatActivity(){
+abstract class BaseActivity < VM :ViewModel, B : ViewDataBinding, R : BaseRepository> : AppCompatActivity(){
 
     private lateinit var binding : B
     private lateinit var viewModel: VM
