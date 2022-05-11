@@ -1,4 +1,4 @@
-package com.example.kotlin.network
+package com.example.architecturaltemplate.network
 
 object Endpoints {
     const val baseURL: String = "https://backend.aegisrider.com/"

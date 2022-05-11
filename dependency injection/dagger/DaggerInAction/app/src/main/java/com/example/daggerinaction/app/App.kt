@@ -1,6 +1,7 @@
 package com.example.daggerinaction.app
 
 import android.app.Application
+import android.content.Context
 import com.example.daggerinaction.di.component.AppComponentGraph
 import com.example.daggerinaction.di.component.DaggerAppComponentGraph
 
@@ -13,6 +14,28 @@ import com.example.daggerinaction.di.component.DaggerAppComponentGraph
  * hence we need to also have the application context available in the graph..How do we that?
 */
 class App: Application() {
-/**Reference to the application graph that is used across the whole app*/
-    val appComponentGraph: AppComponentGraph by lazy { DaggerAppComponentGraph.create() }//make sure to rebuild the app before instantiating
+
+    lateinit var appComponentGraph: AppComponentGraph
+
+    override fun onCreate() {
+        super.onCreate()
+        createAppComponent()
+    }
+
+     init {
+        instance = this
+    }
+
+      companion object {
+        var instance: App? = null
+        fun applicationContext(): Context {
+            return instance!!.applicationContext
+        }
+    }
+
+    private fun createAppComponent() {
+        appComponentGraph=  DaggerAppComponentGraph.create() //make sure to rebuild the app before instantiating
+    }
+
+   // val appComponentGraph: AppComponentGraph by lazy { DaggerAppComponentGraph.create() }//make sure to rebuild the app before instantiating
 }
