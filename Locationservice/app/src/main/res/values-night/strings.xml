@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="location_service">Location service</string>
+    <string name="start">Start</string>
+    <string name="view">View</string>
+    <string name="empty_not_saved">empty list</string>
+</resources>

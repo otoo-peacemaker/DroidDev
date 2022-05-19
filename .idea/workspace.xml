@@ -1,215 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad7b4017-5713-49e6-a8c2-cd803aed1e9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ArchitecturalTemplate/app/src/main/java/com/example/architecturaltemplate/network/ApiClient.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ArchitecturalTemplate/app/src/main/java/com/example/architecturaltemplate/network/Endpoints.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency injection/dagger/DaggerInAction/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="dd470fad-3bc2-4771-83b6-6ca9dbffea29" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Roomwithrepositorypattern/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArchitecturalTemplate/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ArchitecturalTemplate/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/androidTest/java/com/example/hydrateme/CreateEntryActivityTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/androidTest/java/com/example/hydrateme/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/androidTest/java/com/example/hydrateme/IntakeFlowTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/java/com/example/hydrateme/CreateEntryActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/java/com/example/hydrateme/IntakeEntry.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/java/com/example/hydrateme/IntakeModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/java/com/example/hydrateme/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/layout/activity_create_entry.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/values-night/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/values-night/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/pro/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/pro/res/values/string.xml.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/pro/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/test/java/com/example/hydrateme/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/test/java/com/example/hydrateme/IntakeModelTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/app/src/test/java/com/example/hydrateme/MainActivityTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HydrateMe/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/androidTest/java/com/example/app/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/adapters/BindingAdapters.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/data/dao/UserBody.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/data/repository/RemoteDataSource/BaseRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/data/repository/RemoteDataSource/UserRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/data/repository/local/LocalDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/data/repository/local/UserPreferences.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/di/MyApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/network/APIClient.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/network/APIServices.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/network/NetworkStatus.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/network/SafeApiCalls.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/ui/LoginFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/ui/RegistrationFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/util/AppUtil.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/util/Constants.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/util/Resource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/util/Status.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/viewmodel/AppFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/java/com/example/app/viewmodel/UserViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/drawable-v24/ic_broken_image.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/drawable-v24/ic_connection_error.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/drawable-v24/loading_animation.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/drawable-v24/loading_img.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/layout/fragment_login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/layout/fragment_registration.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/values-night/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/app/src/test/java/com/example/app/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/androidTest/java/com/example/android/kotlincoroutines/main/RefreshMainDataWorkTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/debug/java/com/example/android/kotlincoroutines/fakes/TestingFakes.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/KotlinCoroutinesApp.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/main/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/main/MainDatabase.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/main/MainNetwork.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/main/MainViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/main/RefreshMainDataWork.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/main/TitleRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/util/SkipNetworkInterceptor.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/java/com/example/android/kotlincoroutines/util/ViewModelHelpers.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/test/java/com/example/android/kotlincoroutines/main/MainViewModelTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/test/java/com/example/android/kotlincoroutines/main/TitleRepositoryTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/test/java/com/example/android/kotlincoroutines/main/utils/LiveDataTestExtensions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/finished_code/src/test/java/com/example/android/kotlincoroutines/main/utils/MainCoroutineScopeRule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/androidTest/java/com/example/android/kotlincoroutines/main/RefreshMainDataWorkTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/debug/java/com/example/android/kotlincoroutines/fakes/TestingFakes.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/KotlinCoroutinesApp.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/main/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/main/MainDatabase.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/main/MainNetwork.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/main/MainViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/main/RefreshMainDataWork.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/main/TitleRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/util/Executors.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/util/SkipNetworkInterceptor.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/java/com/example/android/kotlincoroutines/util/ViewModelHelpers.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/test/java/com/example/android/kotlincoroutines/main/MainViewModelTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/test/java/com/example/android/kotlincoroutines/main/TitleRepositoryTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/test/java/com/example/android/kotlincoroutines/main/utils/LiveDataTestExtensions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutines-codelab/start/src/test/java/com/example/android/kotlincoroutines/main/utils/MainCoroutineScopeRule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency injection/dagger/DaggerInAction/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency injection/dagger/DaggerInAction/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency injection/dagger/DaggerInAction/app/src/main/java/com/example/daggerinaction/app/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/dependency injection/dagger/DaggerInAction/app/src/main/java/com/example/daggerinaction/app/App.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Roomwithrepositorypattern/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Roomwithrepositorypattern/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Roomwithrepositorypattern/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Roomwithrepositorypattern/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Roomwithrepositorypattern/app/src/main/java/com/example/roomwithrepositorypattern/repository/ListRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Roomwithrepositorypattern/app/src/main/java/com/example/roomwithrepositorypattern/repository/ListRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Roomwithrepositorypattern/app/src/main/res/drawable/ic_baseline_add_24.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,10 +33,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/README.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="KotlinMultiplatform">
     <allAvailableExecutables />
   </component>
-  <component name="ProjectId" id="26sMN3nIclGEeNtmYZ3voe0WlOf" />
+  <component name="ProjectId" id="29437beaCYVOM9d4nYwWZYQNWni" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -239,15 +50,12 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AndroidCleanArchiteture" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Roomwithrepositorypattern" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="AndroidCleanArchitecture.app" />
+      <module name="CleanArchitectureWithAndroid.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -301,17 +109,19 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ad7b4017-5713-49e6-a8c2-cd803aed1e9c" name="Default Changelist" comment="" />
-      <created>1648207796854</created>
+      <changelist id="dd470fad-3bc2-4771-83b6-6ca9dbffea29" name="Default Changelist" comment="" />
+      <created>1652358363955</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648207796854</updated>
+      <updated>1652358363955</updated>
     </task>
     <servers />
   </component>

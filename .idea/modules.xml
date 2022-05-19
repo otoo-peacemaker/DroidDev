@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Android-Devs.iml" filepath="$PROJECT_DIR$/.idea/Android-Devs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CleanArchitectureWithAndroid.iml" filepath="$PROJECT_DIR$/.idea/modules/CleanArchitectureWithAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CleanArchitectureWithAndroid.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CleanArchitectureWithAndroid.app.iml" />
     </modules>
   </component>
 </project>
