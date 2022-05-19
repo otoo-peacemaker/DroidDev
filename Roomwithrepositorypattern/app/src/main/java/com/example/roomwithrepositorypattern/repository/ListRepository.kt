@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.Flow
  * deciding whether to fetch data from a network or use results cached in a local database.
  * */
 
-
 /**Declares the DAO as a private property in the constructor. Pass in the DAO
  * instead of the whole database, because you only need access to the DAO*/
 class ListRepository (private val listDao: ListDao){
