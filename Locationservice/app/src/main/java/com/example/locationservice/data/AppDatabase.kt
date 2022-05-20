@@ -40,7 +40,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "location_service"
+                    "location_services"
                 ).addCallback(ListDatabaseCallback(scope)).build()
                 INSTANCE = instance
                 // return instance

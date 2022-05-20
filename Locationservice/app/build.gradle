@@ -46,11 +46,13 @@ dependencies {
 
     // Dependencies for working with Architecture components
     // You'll probably have to update the version numbers in build.gradle (Project)
+     implementation 'com.google.code.gson:gson:2.9.0'
 
     // Room components
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
     //  implementation "androidx.room:room-coroutines:$rootProject.roomCoroutines"
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
     // Lifecycle components

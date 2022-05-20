@@ -6,9 +6,9 @@ import com.example.locationservice.data.repository.LocationRepository
 
 class ViewModelFactory(private val repository: LocationRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(ActivityViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return MainActivityViewModel(repository) as T
+            return ActivityViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModelFactory Class")
     }
