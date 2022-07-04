@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.notification
+package com.android.notification.util
 
 import android.annotation.SuppressLint
 import android.app.NotificationManager
@@ -23,7 +23,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
-import com.example.android.eggtimernotifications.receiver.SnoozeReceiver
+import com.android.notification.MainActivity
+import com.android.notification.R
+import com.android.notification.receiver.SnoozeReceiver
 
 // Notification ID.
 private val NOTIFICATION_ID = 0

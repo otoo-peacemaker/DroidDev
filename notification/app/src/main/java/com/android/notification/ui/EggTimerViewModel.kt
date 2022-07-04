@@ -25,9 +25,9 @@ import androidx.core.app.AlarmManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
 import com.android.notification.R
-import com.android.notification.cancelNotifications
+import com.android.notification.util.cancelNotifications
 import com.android.notification.receiver.AlarmReceiver
-import com.android.notification.sendNotification
+import com.android.notification.util.sendNotification
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -122,10 +122,9 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
                 val triggerTime = SystemClock.elapsedRealtime() + selectedInterval
 
                 // TODO: Step 1.15 call cancel notification
-                val notificationManager = ContextCompat.getSystemService(app, NotificationManager::class.java
-                    ) as NotificationManager
-                notificationManager.sendNotification(app.getString(R.string.timer_running),app)
-                notificationManager.cancelNotifications()
+                val notificationManager = ContextCompat.getSystemService(app, NotificationManager::class.java) as NotificationManager
+               // notificationManager.sendNotification(app.getString(R.string.timer_running),app)
+               notificationManager.cancelNotifications()
 
                 AlarmManagerCompat.setExactAndAllowWhileIdle(
                     alarmManager,

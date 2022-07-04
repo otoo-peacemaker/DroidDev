@@ -26,6 +26,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.android.notification.R
 import com.android.notification.databinding.FragmentEggTimerBinding
@@ -44,7 +45,7 @@ class EggTimerFragment : Fragment() {
             inflater, R.layout.fragment_egg_timer, container, false
         )
 
-        val viewModel = ViewModelProviders.of(this).get(EggTimerViewModel::class.java)
+        val viewModel = ViewModelProvider(this)[EggTimerViewModel::class.java]
 
         binding.eggTimerViewModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
@@ -58,12 +59,15 @@ class EggTimerFragment : Fragment() {
         return binding.root
     }
 
+
+    /**
+     * @param channelId channel type
+     * @param channelName channel name
+     * */
     private fun createChannel(channelId: String, channelName: String) {
         // TODO: Step 1.6 START create a channel
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notificationChannel = NotificationChannel(
-                channelId,
-                channelName,
+            val notificationChannel = NotificationChannel(channelId, channelName,
                 // TODO: Step 2.4 change importance
                 NotificationManager.IMPORTANCE_HIGH
             )// TODO: Step 2.6 disable badges for this channel
@@ -71,14 +75,13 @@ class EggTimerFragment : Fragment() {
                     setShowBadge(false)
                 }
 
-            notificationChannel.enableLights(true)
-            notificationChannel.lightColor = Color.RED
+            notificationChannel.enableLights(true)//This setting will enable the lights when a notification is shown.
+            notificationChannel.lightColor = Color.RED//set lightColor to red in order to display a red light when a notification is shown.
             notificationChannel.enableVibration(true)
             notificationChannel.description = getString(R.string.breakfast_notification_channel_description)
 
-            val notificationManager = requireActivity().getSystemService(
-                NotificationManager::class.java
-            )
+            //get notification manager instance
+            val notificationManager = requireActivity().getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(notificationChannel)
 
         }

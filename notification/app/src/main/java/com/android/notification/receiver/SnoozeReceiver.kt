@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.eggtimernotifications.receiver
+package com.android.notification.receiver
 
 import android.app.AlarmManager
 import android.app.NotificationManager
@@ -26,7 +26,6 @@ import android.os.SystemClock
 import android.text.format.DateUtils
 import androidx.core.app.AlarmManagerCompat
 import androidx.core.content.ContextCompat
-import com.android.notification.receiver.AlarmReceiver
 
 class SnoozeReceiver: BroadcastReceiver() {
     private val REQUEST_CODE = 0
