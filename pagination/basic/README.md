@@ -1,5 +1,6 @@
 # Android Pagination Library
 
+## Usage
 - One of the most common ways of displaying information to users is with lists. 
 However, sometimes these lists offer just a small window into all the content available to the user. 
 As the user scrolls through the information that is available, there is often the expectation that more data is fetched to supplement the information that has already been seen. 
