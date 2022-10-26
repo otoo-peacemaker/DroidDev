@@ -16,3 +16,9 @@ The Paging library makes it easier for you to load data incrementally and gracef
 - Pager.flow - builds a Flow<PagingData>, based on a PagingConfig and a function that defines how to construct the implemented PagingSource.
 - PagingDataAdapter - a RecyclerView.Adapter that presents PagingData in a RecyclerView. The PagingDataAdapter can be connected to a Kotlin Flow, a LiveData, an RxJava - - Flowable, or an RxJava Observable. The PagingDataAdapter listens to internal PagingData loading events as pages are loaded and uses DiffUtil on a background thread to compute fine-grained updates as updated content is received in the form of new PagingData objects.
 - RemoteMediator - helps implement pagination from network and database.
+
+## To build the PagingSource you need to define the following:
+
+- The type of the paging key - in our case, the Github API uses 1-based index numbers for pages, so the type is Int.
+- The type of data loaded - in our case, we're loading Repo items.
+- Where is the data retrieved from - we're getting the data from GithubService
