@@ -1,5 +1,5 @@
 # Android pagination.
-
+The Paging library makes it easier for you to load data incrementally and gracefully within your app's UI. The Paging API provides support for many of the functionalities that you would otherwise need to implement manually when you need to load data in pages.
 ## Benefits
 - Keeps track of the keys to be used for retrieving the next and previous page.
 - Automatically requests the correct page when the user has scrolled to the end of the list.
