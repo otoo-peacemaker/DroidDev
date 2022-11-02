@@ -36,8 +36,7 @@ class CharacterLoadingAdapter(private val retry: () -> Unit) :
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        loadState: LoadState
-    ): LoadingStateViewHolder {
+        loadState: LoadState): LoadingStateViewHolder {
         val binding = ItemLoadingStateBinding.inflate(LayoutInflater.from(parent.context))
         return LoadingStateViewHolder(binding, retry)
     }
