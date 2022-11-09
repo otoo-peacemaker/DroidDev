@@ -172,16 +172,19 @@ WorkManager allows you to create separate WorkerRequests that run in order or pa
 ////////////////////image
 
 Step 1 - Create Cleanup and Save Workers
+
 First, you'll define all the Worker classes you need. 
 You already have a Worker for blurring an image, but you also need a Worker which cleans up temp files and a Worker which saves the image permanently.
 Create two new classes in the workers package which extend Worker.
 The first should be called **CleanupWorker**, the second should be called **SaveImageToFileWorker**.
 
 Step 2 - Make it extend Worker
+
 Extend CleanupWorker class from Worker class. Add the required constructor parameters.
 class CleanupWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {}
 
 Step 3 - Override and implement doWork() for CleanupWorker
+
 CleanupWorker doesn't need to take any input or pass any output. It always deletes the temporary files if they exist
 
 code:
@@ -230,6 +233,7 @@ import java.io.File
 
 
 Step 4 - Override and implement doWork() for SaveImageToFileWorker
+
 SaveImageToFileWorker will take input and output. 
 The input is a String of the temporarily blurred image URI stored with the key KEY_IMAGE_URI. 
 And the output will also be a String, the URI of the saved blurred image stored with the key KEY_IMAGE_URI.
@@ -302,6 +306,7 @@ class SaveImageToFileWorker(ctx: Context, params: WorkerParameters) : Worker(ctx
 
 
 Step 5 - Modify BlurWorker Notification
+
 Now that we have a chain of Workers taking care of saving the image in the correct folder, 
 we can slow down the work by using the sleep() method defined in the WorkerUtils class, 
 so that it's easier to see each WorkRequest start, even on emulated devices. 
@@ -366,6 +371,7 @@ Instead of calling workManager.enqueue(), call workManager.beginWith().
 This returns a WorkContinuation, which defines a chain of WorkRequests. 
 You can add to this chain of work requests by calling then() method, 
 for example, if you have three WorkRequest objects, workA, workB, and workC, you could do the following:
+
 ```
 // Example code, don't copy to the project
 val continuation = workManager.beginWith(workA)
@@ -468,6 +474,7 @@ WorkInfo is an object that contains details about the current state of a WorkReq
 - the cleanup WorkRequest as well; it would take extra logic to find the save image WorkRequest.
 
 Step 1 - Tag your work
+
 In applyBlur, when creating the SaveImageToFileWorker, tag your work using the String constant TAG_OUTPUT :
 
 ```
@@ -478,6 +485,7 @@ val save = OneTimeWorkRequestBuilder<SaveImageToFileWorker>()
 ```
 
 Step 2 - Get the WorkInfo
+
 Now that you've tagged the work, you can get the WorkInfo:
 * In BlurViewModel, declare a new class variable called outputWorkInfos which is a LiveData<List<WorkInfo>>
 * In BlurViewModel add an init block to get the WorkInfo using WorkManager.getWorkInfosByTagLiveData
@@ -499,6 +507,7 @@ init {
 ```
 
 Step 3 - Display the WorkInfo
+
 Now that you have a LiveData for your WorkInfo, you can observe it in the BlurActivity. In the observer:
 
 * Check if the list of WorkInfo is not null and if it has any WorkInfo objects in it - if not then the Go button has not been clicked yet, so return.
@@ -549,6 +558,7 @@ In Kotlin you can access this method using a variable that the language generate
 Let's display a button that says See File whenever there's a blurred image ready to show.
 
 Step 1 - Create the ‘See File' button
+
 There's already a button in the activity_blur.xml layout that is hidden. It's in BlurActivity and called outputButton.
 
 BlurActivity.kt:
@@ -620,6 +630,7 @@ You added this Cancel Work button, so let's add the code to make it do something
 With WorkManager, you can cancel work using the id, by tag and by unique chain name.
 
 Step 1 - Cancel the work by name
+
 In BlurViewModel, add a new method called cancelWork() to cancel the unique work. 
 Inside the function call cancelUniqueWork on the workManager, pass in the tag IMAGE_MANIPULATION_WORK_NAME.
 
@@ -650,6 +661,7 @@ For Blur-O-Matic, you'll use the constraint that the device must be charging.
 This means that your work request will only run if the device is charging.
 
 Step 1 - Create and add charging constraint
+
 To create a Constraints object, you use a Constraints.Builder. 
 hen you set the constraints you want and add it to the WorkRequest using the method, setRequiresCharging() as shown below:
 
