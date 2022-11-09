@@ -67,6 +67,8 @@ Some examples of tasks that are a good use of WorkManager:
 * Uploading logs
 * Applying filters to images and saving the image
 * Periodically syncing local data with the network
+* Long running tasks such as downloading large amounts of data
+* Scheduling a task to repeat after a set interval.
 WorkManager offers guaranteed execution, and not all tasks require that.
 As such, it is not a catch-all for running every task off of the main thread.
 
